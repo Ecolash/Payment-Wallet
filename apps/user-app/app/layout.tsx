@@ -1,6 +1,8 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Providers } from "./providers";
+import { AppbarClient } from "../components/Appbarclient";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +18,13 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <Providers>
+        
+        <body className={inter.className}>
+          <AppbarClient />
+          {children}
+        </body>
+      </Providers>
     </html>
   );
 }
