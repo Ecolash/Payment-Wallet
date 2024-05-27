@@ -93,6 +93,9 @@ const Graph: React.FC = () => {
           },
         },
       },
+      toolbar: {
+        show: false
+      }
     },
   };
 

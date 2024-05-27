@@ -8,7 +8,7 @@ const page = () => {
   return (
     <div>
       Hi
-      <Graph/>
+      {/* <Graph/> */}
       <ColorPalette/>
     </div>
   )
