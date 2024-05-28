@@ -11,8 +11,12 @@
   "devDependencies": {
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
+    "@types/node": "^20.12.12",
     "prettier": "^3.2.5",
-    "turbo": "latest"
+    "prisma": "^5.14.0",
+    "ts-node": "^10.9.2",
+    "turbo": "latest",
+    "typescript": "^5.4.5"
   },
   "engines": {
     "node": ">=18"
@@ -21,5 +25,13 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "@headlessui/react": "^2.0.3",
+    "@prisma/client": "^5.14.0",
+    "bcrypt": "^5.1.1",
+    "headlessui": "^0.0.0",
+    "lucide-react": "^0.378.0",
+    "react-apexcharts": "^1.4.1"
+  }
 }
