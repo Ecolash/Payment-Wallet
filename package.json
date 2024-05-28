@@ -1,5 +1,5 @@
 {
-  "name": "Paytm-project",
+  "name": "nextpay",
   "private": true,
   "scripts": {
     "build": "turbo build",
@@ -29,6 +29,7 @@
   "dependencies": {
     "@headlessui/react": "^2.0.3",
     "@prisma/client": "^5.14.0",
+    "@types/bcrypt": "^5.0.2",
     "bcrypt": "^5.1.1",
     "headlessui": "^0.0.0",
     "lucide-react": "^0.378.0",
