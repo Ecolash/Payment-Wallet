@@ -2,23 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "clash";
+  src: url("/ClashDisplayMedium.otf") format("opentype");
+}
+
+.clash {
+  font-family: "clash";
+  letter-spacing: 1px;
+  font-weight: 600;
+}
 
 body {
-    margin: 0;
-    height: 100vh;
-    background-color: #1e1e1c;
-    /* background-image: radial-gradient(at 14.54% 84.60%, rgb(53, 7, 77) 0, transparent 98%), radial-gradient(at 89.87% 90.93%, rgb(50, 14, 169) 0, transparent 80%), radial-gradient(at 11.00% 18.73%, rgb(96, 15, 162) 0, transparent 34%), radial-gradient(at 65.31% 11.83%, hsl(258, 28%, 7%) 0, transparent 65%), radial-gradient(at 92.85% 24.50%, hsl(258, 28%, 7%) 0, transparent 93%), radial-gradient(at 36.00% 49.10%, rgb(68, 7, 109) 0, transparent 53%); */
-    color:azure;
-    position: relative;
-    overflow: hidden;
+  margin: 0;
+  height: 100vh;
+  background-color: #1e1e1c;
+  /* background-image: radial-gradient(at 14.54% 84.60%, rgb(53, 7, 77) 0, transparent 98%), radial-gradient(at 89.87% 90.93%, rgb(50, 14, 169) 0, transparent 80%), radial-gradient(at 11.00% 18.73%, rgb(96, 15, 162) 0, transparent 34%), radial-gradient(at 65.31% 11.83%, hsl(258, 28%, 7%) 0, transparent 65%), radial-gradient(at 92.85% 24.50%, hsl(258, 28%, 7%) 0, transparent 93%), radial-gradient(at 36.00% 49.10%, rgb(68, 7, 109) 0, transparent 53%); */
+  color: azure;
+  position: relative;
 }
 
-.hide-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+::-webkit-scrollbar {
+  display: none;
 }
-
-.hide-scrollbar::-webkit-scrollbar {
-    display: none;
-}
-
