@@ -11,8 +11,6 @@ export function Footer() {
                 NextPay
               </span>
             </a>
-
-            <p className="mt-4">A payment gateway that is designed to be the best companion for transactions and payments. Also, storing their data and finances securely. With the best integrations, it is the best choice for your personal budgeting.!</p>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>

@@ -408,6 +408,7 @@ function FeaturesDesktop() {
   return (
     <Tab.Group
       as="div"
+      id="features"
       className="grid grid-cols-12 items-center gap-8 lg:gap-16 xl:gap-24"
       selectedIndex={selectedIndex}
       onChange={onChange}
@@ -429,7 +430,7 @@ function FeaturesDesktop() {
             <div className="relative z-10 p-8">
               <feature.icon className="h-8 w-8" />
               <h3 className="mt-6 text-lg font-semibold text-white">
-                <Tab className="text-left [&:not(:focus-visible)]:focus:outline-none">
+                <Tab className="text-left outline-none">
                   <span className="absolute inset-0 rounded-2xl" />
                   {feature.name}
                 </Tab>
@@ -574,7 +575,7 @@ export function PrimaryFeatures() {
     <section
       id="features"
       aria-label="Features for investing all your money"
-      className="bg-transparent py-20 sm:py-32 relative"
+      className="bg-transparent py-20 sm:py-32 pt-36 relative"
     >
       <Container>
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-3xl">
@@ -596,7 +597,7 @@ export function PrimaryFeatures() {
         <FeaturesDesktop />
       </Container>
 
-      <div className="absolute left-0 right-0 top-full -bottom-[20%] -z-10 m-auto h-[310px] w-[510px] rounded-full bg-red-500 opacity-20 blur-[100px]"></div>
+      <div className="absolute left-0 right-0 top-full -bottom-[28%] -z-10 m-auto h-[310px] w-[510px] rounded-full bg-red-500 opacity-20 blur-[100px]"></div>
     </section>
   );
 }

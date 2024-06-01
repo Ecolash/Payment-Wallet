@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export function ReviewSection() {
   return (
-    <div className="overflow-hidden">
+    <div id="reviews" className="overflow-hidden pt-20">
       <div className="relative max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <div className="mb-6 sm:mb-10 md:mb-16 w-full">
           <h2 className="text-4xl md:text-5xl bg-gradient-to-b from-zinc-100 clash via-zinc-300 to-red-400 bg-clip-text text-transparent">

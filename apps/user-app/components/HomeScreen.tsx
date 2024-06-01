@@ -4,7 +4,7 @@ import Link from "next/link";
 const HomeScreen = ({ session: { user } = { user: null } }) => {
   return (
     <>
-      <div className="bg-gradient-to-bl from-black via-gray-950 to-red-900/20 relative pt-28 md:pt-40 pb-20 lg:pt-44 min-h-screen">
+      <div id="home" className="bg-gradient-to-bl from-black via-gray-950 to-red-900/20 relative pt-28 md:pt-40 pb-20 lg:pt-44 min-h-screen">
         <div className="relative xl:container m-auto px-6 md:px-12 lg:px-6 lg:pl-16">
           <h1 className="lg:pr-80 leading-[3rem] sm:mx-auto sm:w-10/12 md:w-2/3 text-4xl text-center clash sm:text-5xl md:text-6xl lg:w-auto lg:text-left xl:text-7xl text-white">
             The Next Gen <br />
@@ -32,7 +32,7 @@ const HomeScreen = ({ session: { user } = { user: null } }) => {
                 <Link
                   className="inline-flex backdrop-blur-sm items-center justify-center whitespace-nowrap rounded-md text-sm text-gray-100 hover:bg-[#262626]/80 h-11 px-8 font-semibold"
                   href="/about"
-                  style={{background: 'rgb(57 57 57 / 25%)'}}
+                  style={{ background: "rgb(57 57 57 / 25%)" }}
                 >
                   About
                   <svg
