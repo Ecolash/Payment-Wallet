@@ -1,11 +1,14 @@
 'use client'
 import React, { useState } from 'react';
+import { CardsType } from '@prisma/client';
+
+
 export interface BankCardProps {
   bankName?: string;
   accountNumber?: string;
   cardHolderName?: string;
   cvv?: string;
-  cardType?: 'rupay' | 'mastercard' | 'visa';
+  cardType?: CardsType;
   expiryDate?: string;
 }
 

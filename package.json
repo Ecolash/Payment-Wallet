@@ -1,5 +1,5 @@
 {
-  "name": "Paytm-project",
+  "name": "nextpay",
   "private": true,
   "scripts": {
     "build": "turbo build",
@@ -12,6 +12,7 @@
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
     "@types/node": "^20.12.12",
+    "esbuild": "^0.21.4",
     "prettier": "^3.2.5",
     "prisma": "^5.14.0",
     "ts-node": "^10.9.2",
@@ -29,6 +30,7 @@
   "dependencies": {
     "@headlessui/react": "^2.0.3",
     "@prisma/client": "^5.14.0",
+    "@types/bcrypt": "^5.0.2",
     "bcrypt": "^5.1.1",
     "chart.js": "^4.4.3",
     "headlessui": "^0.0.0",
