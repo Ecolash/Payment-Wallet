@@ -1,38 +1,49 @@
+import prisma from '@repo/db/client';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '../../lib/auth';
 import React from 'react';
 import Dashboard from '../../../components/CardDashboard';
+import { CardsType } from '@prisma/client';
 
-const cardData = [
-  {
-    bankName: 'Bank A',
-    accountNumber: '1234 5678 9012 3456',
-    cardHolderName: 'John Doe',
-    cvv: '123',
-    cardType: 'visa',
-    expiryDate: '12/24',
-  },
-  {
-    bankName: 'Bank B',
-    accountNumber: '2345 6789 0123 4567',
-    cardHolderName: 'Jane Smith',
-    cvv: '456',
-    cardType: 'astercard',
-    expiryDate: '11/23',
-  },
-];
 
-const HomePage: React.FC = () => {
+
+interface CardDashboard {
+  card_number: string;
+  card_name: string;
+  card_cvc: string;
+  card_type: CardsType;
+  card_expiry: string;
+}
+
+async function getCardData(){
+  const session=await getServerSession(authOptions);
+  const cards=await prisma.cards.findMany({
+    where:{
+      userId:Number(session?.user?.id)
+    }
+  });
+  return cards.map((c:CardDashboard)=>({
+    accountNumber:c.card_number,
+    cardHolderName:c.card_name,
+    cvv:c.card_cvc,
+    cardType:c.card_type,
+    expiryDate:c.card_expiry
+  }))
+}
+
+export default async function() {
+  const cardData=await getCardData();
   return (
     <div>
       <Dashboard cards={cardData.map(card => ({
-        bankName: card.bankName,
+        bankName: "HDFC BANK",//Hard Coded Now
         accountNumber: card.accountNumber,
         cardHolderName: card.cardHolderName,
         cvv: card.cvv,
-        cardType: card.cardType as "visa" | "mastercard" | "rupay",
+        cardType: card.cardType ,
         expiryDate: card.expiryDate,
       }))} />
     </div>
   );
 };
 
-export default HomePage;

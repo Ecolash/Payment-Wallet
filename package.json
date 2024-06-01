@@ -12,6 +12,7 @@
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
     "@types/node": "^20.12.12",
+    "esbuild": "^0.21.4",
     "prettier": "^3.2.5",
     "prisma": "^5.14.0",
     "ts-node": "^10.9.2",

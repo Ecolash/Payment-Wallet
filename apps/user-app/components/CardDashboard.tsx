@@ -1,23 +1,83 @@
 'use client';
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import BankCard, { FrontFace } from './CreditCard'; 
+import { Button } from '@repo/ui/button';
+import { AddCardForm } from './AddCard';
+import { CardsType } from '@prisma/client';
+
+
 
 interface Card {
   bankName: string;
   accountNumber: string;
   cardHolderName: string;
   cvv: string;
-  cardType: 'rupay' | 'mastercard' | 'visa';
+  cardType: CardsType;
   expiryDate: string;
+}
+interface ModalProps {
+  show: boolean;
+  handleClose: () => void;
+  children: ReactNode;
 }
 
 interface DashboardProps {
   cards: Card[];
 }
 
+const Modal:React.FC<ModalProps> = ({ show, handleClose, children }) => {
+  return (
+    <div className={`modal ${show ? "show" : ""}`}>
+      <div className="modal-content">
+        <button className="close" onClick={handleClose}>
+          &times;
+        </button>
+        {children}
+      </div>
+      <style jsx>{`
+        .modal {
+          display: ${show ? "block" : "none"};
+          position: fixed;
+          z-index: 1;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          overflow: auto;
+          background-color: rgb(0, 0, 0);
+          background-color: rgba(0, 0, 0, 0.4);
+          padding-top: 60px;
+        }
+        .modal-content {
+          background-color: #fefefe;
+          margin: 5% auto;
+          padding: 20px;
+          border: 1px solid #888;
+          width: 80%;
+        }
+        .close {
+          color: #aaa;
+          float: right;
+          font-size: 28px;
+          font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+          color: black;
+          text-decoration: none;
+          cursor: pointer;
+        }
+      `}</style>
+    </div>
+  );
+};
+
 const Dashboard: React.FC<DashboardProps> = ({ cards }) => {
   const [selectedCardIndex, setSelectedCardIndex] = useState(0);
   const selectedCard = cards[selectedCardIndex];
+  const [showModal, setShowModal] = useState(false);
+  const handleShow = () => setShowModal(true);
+  const handleClose = () => setShowModal(false);
 
   return (
     <div className="flex flex-col lg:flex-row p-4">
@@ -36,8 +96,14 @@ const Dashboard: React.FC<DashboardProps> = ({ cards }) => {
         </div>
       </div>
       <div className="flex-grow lg:w-2/3 p-4">
-        <div className="mb-4">
+        <div className="mb-4 flex justify-between">
           <h2 className="text-2xl font-bold">All Cards</h2>
+          <div >
+          <Button onClick={handleShow}>Add Card</Button>
+          <Modal show={showModal} handleClose={handleClose}>
+            <AddCardForm />
+          </Modal>
+          </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {cards.map((card, index) => (
@@ -51,8 +117,12 @@ const Dashboard: React.FC<DashboardProps> = ({ cards }) => {
           ))}
         </div>
       </div>
+      
     </div>
+    
   );
 };
+
+
 
 export default Dashboard;

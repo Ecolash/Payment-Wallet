@@ -21,6 +21,7 @@ model User {
   password String?
   Balance Balance[]
   OnRampTransaction OnRampTransaction[]
+  Cards Cards[]
 }
 
 model Merchant {
@@ -49,6 +50,18 @@ model OnRampTransaction {
   user User @relation(fields: [userId], references: [id])
 }
 
+model Cards {
+  id Int @id @default(autoincrement())
+  card_number String
+  card_name String
+  card_expiry String
+  card_cvc String
+  card_type CardsType
+  userId Int
+  user User @relation(fields: [userId], references: [id])
+
+}
+
 enum AuthType {
   Google
   Github
@@ -58,4 +71,13 @@ enum OnRampStatus {
   Success
   Failure
   Processing
+}
+
+enum CardsType {
+  visa
+  mastercard
+  amex
+  rupay
+  jcb
+  visa_electron
 }
