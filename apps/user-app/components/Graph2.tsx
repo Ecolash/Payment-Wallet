@@ -1,6 +1,7 @@
+'use client'
 import React, { useState } from 'react';
 import { Bar } from 'react-chartjs-2';
-import 'tailwindcss/tailwind.css';
+
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -129,7 +130,7 @@ const BarChart = () => {
     };
 
     return (
-        <div className="flex flex-col my-2 bg-cardblack p-1.5 rounded-xl">
+        <div className="flex flex-col my-2 bg-cardblack p-1.5 rounded-xl h-[320px]">
             <div className="flex justify-end mb-[-30px] z-10">
                 <select
                     value={selectedYear}
@@ -143,7 +144,7 @@ const BarChart = () => {
                     ))}
                 </select>
             </div>
-            <div className="relative w-[650px] h-auto">
+            <div className="relative w-[650px] h-[300px]">
                 <Bar data={dataConfig} options={options} />
             </div>
         </div>
