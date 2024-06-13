@@ -52,19 +52,19 @@ const P2PTransferTable: React.FC<P2PTransferTableProps> = ({ transfers }) => {
                       <div className="w-[28px] h-[28px] p-0.5 rounded-full bg-navred flex items-center justify-center mr-2">
                         <span className="text-white font-bold text-sm">{initials}</span>
                       </div>
-                      <span className="mr-2 font-sans font-semibold text-[13.5px]">{transfer.name}</span>
+                      <span className="mr-2 font-sans font-semibold text-[14.5px]">{transfer.name}</span>
                     </td>
-                    <td className={`px-4 py-1 font-sans font-semibold text-[13.5px] ${transfer.amount.startsWith('+') ? 'text-green-400' : 'text-red-400'}`}>
+                    <td className={`px-4 py-1 font-sans font-semibold text-[14.5px] ${transfer.amount.startsWith('+') ? 'text-green-400' : 'text-red-400'}`}>
                       {transfer.amount}
                     </td>
                     <td className="px-4 py-2">
-                      <div className={`py-1 px-2 text-center rounded-full text-[11px] font-bold w-[85px] ${transfer.status === 'Success' ? 'bg-success-300 text-success-800' : transfer.status === 'Declined' ? 'bg-failure-300 text-failure-800' : 'bg-process-300 text-process-800'}`}>
+                      <div className={`py-1 px-2 text-center rounded-full text-[11px] font-bold w-[85px] ${transfer.status === 'Success' ? 'bg-success-300 text-green-900' : transfer.status === 'Declined' ? 'bg-failure-300 text-red-900' : 'bg-process-300 text-yellow-900'}`}>
                         {transfer.status}
                       </div>
                     </td>
-                    <td className="px-4 py-1 font-sans font-semibold text-[13.5px]">{day}</td>
-                    <td className="px-4 py-1 font-sans font-semibold text-[13.5px]">{date}</td>
-                    <td className="px-4 py-1 font-sans font-semibold text-[13.5px]">{transfer.time}</td>
+                    <td className="px-4 py-1 font-sans font-semibold text-[14.5px]">{day}</td>
+                    <td className="px-4 py-1 font-sans font-semibold text-[14.5px]">{date}</td>
+                    <td className="px-4 py-1 font-sans font-semibold text-[14.5px]">{transfer.time}</td>
                   </tr>
                 );
               })}

@@ -42,14 +42,14 @@ const RecentRecharges: React.FC<RecentRechargesProps> = ({ transactions }) => {
                 return (
                   <tr key={transaction.id} className="border-t border-gray-700">
                     <td className="px-4 py-1 flex items-center">
-                      <span className="mr-2 font-sans font-semibold text-[13.5px]">{transaction.cardHolderName}</span>
+                      <span className="mr-2 font-sans font-semibold text-[15px]">{transaction.cardHolderName}</span>
                     </td>
-                    <td className="px-4 py-1 font-sans font-semibold text-[13.5px] text-green-400">
+                    <td className="px-4 py-1 font-sans font-semibold text-[15px] text-green-400">
                       +₹{transaction.amount.toFixed(2)}
                     </td>
-                    <td className="px-4 py-1 font-sans font-semibold text-[13.5px]">{date}</td>
-                    <td className="px-4 py-1 font-sans font-semibold text-[13.5px]">{time}</td>
-                    <td className="px-4 py-1 font-sans font-semibold text-[13.5px]">{transaction.cardType}</td>
+                    <td className="px-4 py-1 font-sans font-semibold text-[15px]">{date}</td>
+                    <td className="px-4 py-1 font-sans font-semibold text-[15px]">{time}</td>
+                    <td className="px-4 py-1 font-sans font-semibold text-[15px]">{transaction.cardType}</td>
                   </tr>
                 );
               })}

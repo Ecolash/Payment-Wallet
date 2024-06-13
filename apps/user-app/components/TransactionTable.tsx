@@ -60,20 +60,20 @@ const TransactionTable: React.FC<TransactionTableProps> = ({ transactions, selec
                 return (
                   <tr key={transaction.id} className="border-t border-gray-700">
                     <td className="px-4 py-1 flex items-center">
-                      <span className="mr-2 font-sans font-semibold text-[13.5px]">{transaction.name}</span>
+                      <span className="mr-2 font-sans font-semibold text-[14.5px]">{transaction.name}</span>
                     </td>
-                    <td className={`px-4 py-1 font-sans font-semibold text-[13.5px] ${transaction.amount.startsWith('+') ? 'text-green-400' : 'text-red-400'}`}>
+                    <td className={`px-4 py-1 font-sans font-semibold text-[14.5px] ${transaction.amount.startsWith('+') ? 'text-green-400' : 'text-red-400'}`}>
                       {transaction.amount}
                     </td>
                     <td className="px-4 py-2">
-                      <div className={`py-1 px-2 text-center rounded-full text-[11px] font-bold w-[85px] ${transaction.status === 'Success' ? 'bg-success-300 text-success-800' : transaction.status === 'Declined' ? 'bg-failure-300 text-failure-800' : 'bg-process-300 text-process-800'}`}>
+                      <div className={`py-1 px-2 text-center rounded-full text-[11px] font-bold w-[85px]  ${transaction.status === 'Success' ? 'bg-success-300 text-green-900' : transaction.status === 'Declined' ? 'bg-failure-300 text-red-900' : 'bg-process-300 text-yellow-900'}`}>
                         {transaction.status}
                       </div>
                     </td>
-                    <td className="px-4 py-1 font-sans font-semibold text-[13.5px]">{day}</td>
-                    <td className="px-4 py-1 font-sans font-semibold text-[13.5px]">{date}</td>
-                    <td className="px-4 py-1 font-sans font-semibold text-[13.5px]">{transaction.time}</td>
-                    <td className="px-4 py-1 font-sans font-semibold text-[13.5px] flex items-center">
+                    <td className="px-4 py-1 font-sans font-semibold text-[14.5px]">{day}</td>
+                    <td className="px-4 py-1 font-sans font-semibold text-[14.5px]">{date}</td>
+                    <td className="px-4 py-1 font-sans font-semibold text-[14.5px]">{transaction.time}</td>
+                    <td className="px-4 py-1 font-sans font-semibold text-[14.5px] flex items-center">
                       <span className={`py-1 px-3 rounded-full text-xs font-semibold text-${transaction.categoryColor}`}>
                         {transaction.category}
                       </span>

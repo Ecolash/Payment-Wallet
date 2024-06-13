@@ -20,7 +20,7 @@ const transactions: Transaction[] = [
 
 const p2pTransfers: P2PTransfer[] = [
   { id: 1, name: 'John Doe', amount: '-$50.00', status: 'Success', date: '2023-06-07', time: '1:00 PM'},
-  { id: 1, name: 'Brian Lara', amount: '+$150.00', status: 'Failure', date: '2023-06-08', time: '2:50 PM'},
+  { id: 1, name: 'Brian Lara', amount: '+$150.00', status: 'Declined', date: '2023-06-08', time: '2:50 PM'},
   { id: 1, name: 'Rex Glain', amount: '-$50.00', status: 'Processing', date: '2023-06-02', time: '1:20 PM'},
   { id: 1, name: 'Jimmy Doe', amount: '+$50.00', status: 'Success', date: '2023-06-07', time: '4:00 PM'},
   { id: 2, name: 'Jane Smith', amount: '+$150.00', status: 'Success', date: '2023-06-07', time: '2:45 AM'},
@@ -65,7 +65,7 @@ const App: React.FC = () => {
               setSelectedCategory={setSelectedCategory}
             />
           </div>
-          <div className="w-1/4 my-2">
+          <div className="w-1/4 my-2 bg-cardblack rounded-xl p-2">
             <PieChart data={expenditureData} colors={categoryColors} />
           </div>
         </div>
