@@ -2,7 +2,7 @@
 import React from 'react';
 import { format, parseISO } from 'date-fns';
 
-interface Transaction {
+export interface Transaction {
   id: number;
   name: string;
   amount: string;
@@ -74,7 +74,6 @@ const TransactionTable: React.FC<TransactionTableProps> = ({ transactions, selec
                     <td className="px-4 py-1 font-sans font-semibold text-[13.5px]">{date}</td>
                     <td className="px-4 py-1 font-sans font-semibold text-[13.5px]">{transaction.time}</td>
                     <td className="px-4 py-1 font-sans font-semibold text-[13.5px] flex items-center">
-                      <div className={`w-4 h-4 mr-2 rounded-full bg-${transaction.categoryColor}`} />
                       <span className={`py-1 px-3 rounded-full text-xs font-semibold text-${transaction.categoryColor}`}>
                         {transaction.category}
                       </span>

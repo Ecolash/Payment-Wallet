@@ -34,7 +34,7 @@ const PieChart: React.FC<PieChartProps> = ({ data, colors }) => {
   };
 
   return (
-    <div className="w-[300px] mx-auto items-center">
+    <div className="w-[280px] mx-auto items-center">
       <h2 className="text-center text-[18px] font-bold font-sans mb-2">Expenditure by Category</h2>
       <Pie data={chartData} options={options} height={500} width={500} />
     </div>
