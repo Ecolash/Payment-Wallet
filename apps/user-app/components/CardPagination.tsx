@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import BankCard, { BankCardProps } from './CreditCard';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
-interface CardPaginationProps {
+export interface CardPaginationProps {
   cards: BankCardProps[];
+  onSelect: (card: BankCardProps) => void;
 }
 
 const CardPagination: React.FC<CardPaginationProps> = ({ cards }) => {

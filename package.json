@@ -32,8 +32,11 @@
     "@prisma/client": "^5.14.0",
     "@types/bcrypt": "^5.0.2",
     "bcrypt": "^5.1.1",
+    "chart.js": "^4.4.3",
+    "date-fns": "^3.6.0",
     "headlessui": "^0.0.0",
     "lucide-react": "^0.378.0",
-    "react-apexcharts": "^1.4.1"
+    "react-apexcharts": "^1.4.1",
+    "react-chartjs-2": "^5.2.0"
   }
 }
