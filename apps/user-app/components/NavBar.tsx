@@ -24,7 +24,7 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <div className="fixed bottom-0 md2:top-0 md2:bottom-auto w-full h-13 bg-navred z-10 pb-0">
+    <div className="fixed bottom-0 md2:top-0 md2:bottom-auto w-full h-13 bg-navred z-50 pb-0">
       <div className="flex justify-between items-center h-13 text-primary-900 px-2 mt-0.5 pb-0">
         <div className="hidden md2:flex items-center space-x-2">
           <img src="/logo.png" alt="App Logo" className="h-12 w-12 mr-0.5" />

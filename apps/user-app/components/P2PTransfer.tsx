@@ -42,9 +42,10 @@ const P2PTransfer: React.FC<P2PTransferProps> = ({ ownAccount, cards, contacts }
 
       <div className="mx-2">
         <label className="block text-[16px] font-bold font-sans text-neutral-300">Select Account</label>
-        <CardPagination cards={cards} />
+        <CardPagination cards={cards} onSelect={function (card: BankCardProps): void {
+                  throw new Error('Function not implemented.');
+              } } />      
       </div>
-
       <div>
       <label className="block text-[16px] font-bold font-sans text-neutral-300">Amount</label>
       <div className="mb-1 flex flex-row space-x-2 pr-2">
