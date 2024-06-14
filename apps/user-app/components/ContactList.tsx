@@ -6,7 +6,7 @@ import { CloseButton } from '@headlessui/react';
 interface Contact {
   id: number;
   name: string;
-  phone: string;
+  phone: string |null;
 }
 
 interface ContactListProps {
@@ -20,8 +20,8 @@ const ContactList: React.FC<ContactListProps> = ({ contacts }) => {
   const filteredContacts = query === ''
     ? contacts
     : contacts.filter((contact) =>
-        contact.name.toLowerCase().includes(query.toLowerCase()) ||
-        contact.phone.includes(query)
+        contact.name?.toLowerCase().includes(query.toLowerCase()) ||
+        contact.phone?.includes(query)
       );
 
   const handleSelectContact = (contact: Contact) => {
@@ -91,7 +91,7 @@ const ContactList: React.FC<ContactListProps> = ({ contacts }) => {
               >
                 <span className="flex justify-between">
                   <span className=" font-sans text-[13.5px] font-semibold">{contact.name}</span>
-                  <span className=" font-sans text-[13.5px] font-semibold">+91 {contact.phone}</span>
+                 {contact.phone && <span className=" font-sans text-[13.5px] font-semibold">+91 {contact.phone}</span>} 
                 </span>
               </li>
             ))}

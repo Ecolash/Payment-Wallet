@@ -13,7 +13,7 @@ interface Account {
 interface Contact {
   id: number;
   name: string;
-  phone: string;
+  phone: string | null;
 }
 
 interface P2PTransferProps {
