@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import { CardsType } from '@prisma/client';
+import Image from 'next/image';
 
 
 export interface BankCardProps {
@@ -29,7 +30,7 @@ const BankCard: React.FC<BankCardProps> = ({
   return (
     <div
       onClick={handleClick}
-      className="w-[384px] h-[228px] relative cursor-pointer"
+      className="sm:w-[384px] sm:h-[228px] relative cursor-pointer"
       style={{
         perspective: '1000px',
       }}
@@ -77,12 +78,12 @@ const FrontFace: React.FC<FrontFaceProps> = ({
   expiryDate
 }) => {
   return (
-    <div className="w-[384px] h-[228px] rounded-xl flex flex-row bg-auto bg-center" style={{ backgroundImage: `url('/Card/7.png')`, backgroundSize: '600px 300px' }}>
+    <div className="rounded-xl flex flex-row bg-auto bg-center" style={{ backgroundImage: `url('/Card/5.png')`, backgroundSize: '600px 300px' }}>
       <div className="w-[280px] h-[224px] rounded-xl overflow-visible m-[2px] flex flex-col">
         <div className="px-3 mt-2 w-full h-auto font-sans font-bold text-white text-[19px]">{bankName.toUpperCase()}</div>
         <div className="px-3 w-full mt-[-2px] h-auto font-sans font-bold text-white text-[12px]">CREDIT CARD</div>
         <div className="h-12 my-2">
-          <img src="/Card/chip2.png" className="mx-3 my-2 h-9 w-14" alt="chip" />
+          <Image width={1000} height={1000} src="/Card/chip2.png" className="mx-3 my-2 h-9 w-14" alt="chip" />
         </div>
         <div className="px-3 w-[330px] my-0 font-sans font-bold text-white text-[24px] tracking-[1.7px]">{accountNumber}</div>
         <div className="flex flex-row w-[290px] my-[-3px]">
@@ -94,9 +95,9 @@ const FrontFace: React.FC<FrontFaceProps> = ({
         </div>
       </div>
       <div className="w-[95px] h-[224px] rounded-xl m-[2px] flex flex-col overflow-hidden">
-        <img src="/Card/pay.png" className="ml-12 my-4 h-[32px] w-[34px]" alt="payment" />
+        <Image  width={1000} height={1000} src="/Card/pay.png" className="ml-12 my-4 h-[32px] w-[34px]" alt="payment" />
         <div className="h-28"></div>
-        <img src={`/Card/${cardType === 'mastercard' ? 'MasterCard' : cardType === 'visa' ? 'Visa' : cardType === 'rupay' ?  'RuPay' : 'none'}.png`} className="mt-2 ml-1 h-[34px] w-[102px]" alt={cardType} />
+        <Image  width={1000} height={1000}  src={`/Card/${cardType === 'mastercard' ? 'MasterCard' : cardType === 'visa' ? 'Visa' : cardType === 'rupay' ?  'RuPay' : 'none'}.png`} className="mt-2 ml-1 h-[34px] w-[102px]" alt={cardType} />
       </div>
     </div>
   );

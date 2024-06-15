@@ -1,6 +1,5 @@
 'use client'
 
-import React, { useState } from 'react';
 import {
   HomeIcon,
   LayoutDashboardIcon,
@@ -9,6 +8,7 @@ import {
   ArrowUpDownIcon,
   Settings
 } from 'lucide-react';
+import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 
 const Navbar: React.FC = () => {
@@ -27,7 +27,7 @@ const Navbar: React.FC = () => {
     <div className="fixed bottom-0 md2:top-0 md2:bottom-auto w-full h-13 bg-navred z-50 pb-0">
       <div className="flex justify-between items-center h-13 text-primary-900 px-2 mt-0.5 pb-0">
         <div className="hidden md2:flex items-center space-x-2">
-          <img src="/logo.png" alt="App Logo" className="h-12 w-12 mr-0.5" />
+          <Image width={500} height={500} src="/logo.png" alt="App Logo" className="h-12 w-12 mr-0.5" />
           <span className="text-red-200 text-[34px] font-bold font-sans mt-[-8px]">PayApp</span>
         </div>
         <div className="flex justify-around items-center w-full md2:w-auto mt-1">
@@ -57,7 +57,7 @@ interface NavIconProps {
   onClick: () => void;
 }
 
-const NavIcon: React.FC<NavIconProps> = ({ icon, label, href, isActive, onClick }) => {
+const NavIcon: React.FC<NavIconProps> = ({ icon, label, isActive, onClick }) => {
   return (
     <div
       className={`flex items-center mx-1 lg:mx-1.5 p-1 pb-[5px] cursor-pointer relative rounded-tl-[10px] rounded-tr-[10px] rounded-br-none rounded-bl-none font-semibold ${

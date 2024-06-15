@@ -2,8 +2,11 @@ import prisma from "@repo/db/client";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../lib/auth";
 import React from "react";
-import Dashboard from "../../../components/CardDashboard";
 import { CardsType } from "@prisma/client";
+import Link from "next/link";
+import { ChevronRight, HomeIcon } from "lucide-react";
+import Modal from "../../../components/ui/Modal";
+import AllCards from "../../../components/AllCards";
 
 interface CardDashboard {
   card_number: string;
@@ -31,9 +34,31 @@ async function getCardData() {
 
 export default async function () {
   const cardData = await getCardData();
+
   return (
-    <div>
-      <Dashboard
+    <>
+      <div>
+        <div className="flex items-end justify-between mb-[37px]">
+          <div>
+            <h2 className="capitalize text-white font-bold text-[28px] leading-[35px] mb-[13px]">
+              Your Cards
+            </h2>
+            <div className="flex items-center text-xs text-gray-400 gap-x-[11px]">
+              <div className="flex items-center gap-x-1">
+                <HomeIcon size={12} />
+                <Link className="capitalize" href="/dashboard">
+                  home
+                </Link>
+              </div>
+              <ChevronRight size={14} />
+              <span className="capitalize text-red-400">Your Cards</span>
+            </div>
+          </div>
+          <Modal />
+        </div>
+      </div>
+
+      <AllCards
         cards={cardData.map((card) => ({
           bankName: "HDFC BANK", //Hard Coded Now
           accountNumber: card.accountNumber,
@@ -43,6 +68,6 @@ export default async function () {
           expiryDate: card.expiryDate,
         }))}
       />
-    </div>
+    </>
   );
 }

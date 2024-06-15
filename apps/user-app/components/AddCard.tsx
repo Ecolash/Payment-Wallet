@@ -41,11 +41,11 @@ export const AddCardForm = () => {
 
       <form>
         <div className="row ">
-          <div className="col-sm-11 text-black">
+          <div className="text-gray-200 font-bold text-sm mb-2 block">
             <label>Card Number</label>
             <input
               type="text"
-              className="form-control"
+              className="flex h-10 w-full outline-none  rounded-md focus:border-2 bg-neutral-900 px-4 py-1.5 text-lg focus:border-red-500"
               value={state.number}
               name="number"
               onChange={handleInputChange}
