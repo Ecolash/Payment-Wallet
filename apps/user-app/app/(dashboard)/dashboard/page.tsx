@@ -1,14 +1,12 @@
 "use client";
-import React, { useState, useMemo } from "react";
-import PieChart from "../../../components/PieChart1";
+
+import { useState } from "react";
 import TransactionTable from "../../../components/TransactionTable";
-import BarChart from "../../../components/Graph2";
 import P2PTransferTable from "../../../components/P2PTransferTable";
 import { P2PTransfer } from "../../../components/P2PTransferTable";
 import { Transaction } from "../../../components/TransactionTable";
 import Image from "next/image";
 import { ArrowRight, ArrowUp, DollarSign, Send } from "lucide-react";
-import { Button } from "@repo/ui/button";
 
 const transactions: Transaction[] = [
   {
@@ -132,7 +130,7 @@ const App: React.FC = () => {
   );
   categories.unshift("All");
 
-  const expenditureData = useMemo(() => {
+  {/*const expenditureData = useMemo(() => {
     return transactions
       .filter((transaction) => transaction.amount.startsWith("-"))
       .reduce(
@@ -156,7 +154,7 @@ const App: React.FC = () => {
       return acc;
     },
     {} as { [key: string]: string }
-  );
+  );*/}
 
   const currentTime = new Date();
   const currentHour = currentTime.getHours();
@@ -177,7 +175,7 @@ const App: React.FC = () => {
       <div className="bg-stone-900 overflow-hidden p-4 md:p-6 rounded-lg mb-8 relative">
         <div className="hidden lg:block mr-16 -mt-4 top-0 right-0 absolute pointer-events-none">
           <svg
-          className="hue-rotate-[120deg]"
+            className="hue-rotate-[120deg]"
             width="319"
             height="198"
             xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -256,7 +254,7 @@ const App: React.FC = () => {
       </div>
 
       <div className="mt-4 grid grid-cols-12 gap-4 sm:mt-5 sm:gap-5 lg:mt-6 lg:gap-6">
-        <div className="col-span-12 lg:col-span-8">
+        <div className="col-span-12 lg:col-span-8 flex flex-col justify-between">
           <div className="grid grid-cols-2 gap-4 xl:grid-cols-4 sm:gap-5 lg:gap-6">
             <div className="bg-[#2a2a2b] rounded-lg h-[200px] text-white p-4 sm:p-5">
               <div className="flex size-12 items-center justify-center rounded-xl bg-red-500 shadow-xl shadow-red-500/50">
@@ -438,18 +436,11 @@ const App: React.FC = () => {
         </div>
       </div>
 
-      {/*
-        <TransactionTable
-          transactions={filteredTransactions}
-          selectedCategory={selectedCategory}
-          setSelectedCategory={setSelectedCategory}
-        />
-
-        <P2PTransferTable transfers={p2pTransfers} />
-
-
-        <BarChart />
-      */}
+      <TransactionTable
+        transactions={filteredTransactions}
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+      />
     </>
   );
 };

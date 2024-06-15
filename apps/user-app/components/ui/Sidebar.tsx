@@ -13,8 +13,7 @@ import {
   ArrowUpDownIcon,
 } from "lucide-react";
 
-const Sidebar = () => {
-
+const Sidebar = () => {  
   const location = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const handleToggle = () => {

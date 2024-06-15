@@ -3,11 +3,7 @@ import { BankCardProps } from '../../../components/CreditCard';
 import prisma from '@repo/db/client';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '../../lib/auth';
-interface contacts{
-  id:string,
-  name:string,
-  phone:string|null
-}
+
 
 async function getUsers(){
   const session=await getServerSession(authOptions);
@@ -27,10 +23,6 @@ async function getUsers(){
 export default async function(){
   const contacts=await getUsers();
   const ownAccount = { id: '1', name: 'My Account', balance: 1000 };
-  const otherAccounts = [
-    { id: '2', name: 'Alice', balance: 500 },
-    { id: '3', name: 'Bob', balance: 750 },
-  ];
 
   // const contacts = [
   // { id: 1, name: 'John Doe', phone: '9876543210' },
