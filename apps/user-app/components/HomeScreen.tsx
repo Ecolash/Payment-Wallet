@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const HomeScreen = ({ session: { user } = { user: null } }) => {
+const HomeScreen = ({ session = { user: null } }) => {
+  const { user } = session || { user : null };
+  {
   return (
     <>
       <div id="home" className="bg-gradient-to-bl from-black via-gray-950 to-red-900/20 relative pt-28 md:pt-40 pb-20 lg:pt-44 min-h-screen">
@@ -82,5 +84,6 @@ const HomeScreen = ({ session: { user } = { user: null } }) => {
     </>
   );
 };
+}
 
 export default HomeScreen;
