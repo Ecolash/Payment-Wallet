@@ -1,6 +1,6 @@
-'use client'
-import React from 'react';
-import { format, parseISO } from 'date-fns';
+"use client";
+import React from "react";
+import { format, parseISO } from "date-fns";
 
 export interface Transaction {
   id: number;
@@ -19,62 +19,99 @@ interface TransactionTableProps {
   setSelectedCategory: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const TransactionTable: React.FC<TransactionTableProps> = ({ transactions, selectedCategory, setSelectedCategory }) => {
-  const categories = Array.from(new Set(transactions.map(transaction => transaction.category)));
-  categories.unshift('All');
+const TransactionTable: React.FC<TransactionTableProps> = ({
+  transactions,
+  selectedCategory,
+  setSelectedCategory,
+}) => {
+  const categories = ["Subscriptions", "Deposit", "Groceries", "Income", "Food and dining"]
+  categories.unshift("All");
 
   return (
-    <div className="h-[320px] w-full bg-cardblack text-white py-1.5 rounded-xl mt-2">
+    <div className="w-full bg-cardblack text-white py-2 rounded-xl mt-5 border-t-2 border-orange-500">
       <div className="w-full mx-auto">
-        <div className="flex justify-between items-center mb-4">
-          <h1 className="text-[20px] font-bold font-sans pl-2">Merchant Transaction History</h1>
+        <div className="flex px-1 justify-between items-center mb-4">
+          <h1 className="text-[20px] font-bold font-sans pl-2">
+            Merchant Transaction History
+          </h1>
           <select
             value={selectedCategory}
-            onChange={e => setSelectedCategory(e.target.value)}
+            onChange={(e) => setSelectedCategory(e.target.value)}
             className="bg-subblack text-white p-2 mr-2 rounded-md"
           >
-            {categories.map(category => (
-              <option key={category} value={category}>{category}</option>
+            {categories.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
             ))}
           </select>
         </div>
-        <div className="overflow-x-hidden h-[250px]">
+        <div className="overflow-x-scroll">
           <table className="w-full text-left table-auto">
             <thead className="bg-subblack font-sans font-semibold text-[14px]">
               <tr>
-                <th className="px-4 py-2">Transaction</th>
-                <th className="px-4 py-2">Amount</th>
-                <th className="px-4 py-2">Status</th>
-                <th className="px-4 py-2">Day</th>
-                <th className="px-4 py-2">Date</th>
-                <th className="px-4 py-2">Time</th>
-                <th className="px-4 py-2">Category</th>
+                <th scope="col" className="px-6 py-3">
+                  Transaction
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Amount
+                </th>
+                <th scope="col" className="px-6 py-3 text-center">
+                  Status
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Day
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Date
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Time
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Category
+                </th>
               </tr>
             </thead>
             <tbody>
-              {transactions.map(transaction => {
+              {transactions.map((transaction) => {
                 const parsedDate = parseISO(transaction.date);
-                const day = format(parsedDate, 'E');
-                const date = format(parsedDate, 'MMM d');
+                const day = format(parsedDate, "E");
+                const date = format(parsedDate, "MMM d");
 
                 return (
                   <tr key={transaction.id} className="border-t border-gray-700">
-                    <td className="px-4 py-1 flex items-center">
-                      <span className="mr-2 font-sans font-semibold text-[14.5px]">{transaction.name}</span>
-                    </td>
-                    <td className={`px-4 py-1 font-sans font-semibold text-[14.5px] ${transaction.amount.startsWith('+') ? 'text-green-400' : 'text-red-400'}`}>
+                    <th
+                      scope="row"
+                      className="flex items-center px-6 py-4 whitespace-nowrap text-white"
+                    >
+                      <div className="ps-1">
+                        <div className="text-base font-semibold">
+                          {transaction.name}
+                        </div>
+                      </div>
+                    </th>
+                    <td
+                      className={`px-6 text-nowrap py-4 ${transaction.amount.startsWith("+") ? "text-green-400" : "text-red-400"}`}
+                    >
                       {transaction.amount}
                     </td>
-                    <td className="px-4 py-2">
-                      <div className={`py-1 px-2 text-center rounded-full text-[11px] font-bold w-[85px]  ${transaction.status === 'Success' ? 'bg-success-300 text-green-900' : transaction.status === 'Declined' ? 'bg-failure-300 text-red-900' : 'bg-process-300 text-yellow-900'}`}>
+                    <td className="px-6 text-nowrap py-4">
+                      <div
+                        className={`py-1 px-2 text-center  rounded-full text-[11px] font-bold  ${transaction.status === "Success" ? "bg-success-300 text-green-900" : transaction.status === "Declined" ? "bg-failure-300 text-red-900" : "bg-process-300 text-yellow-900"}`}
+                      >
                         {transaction.status}
                       </div>
                     </td>
-                    <td className="px-4 py-1 font-sans font-semibold text-[14.5px]">{day}</td>
-                    <td className="px-4 py-1 font-sans font-semibold text-[14.5px]">{date}</td>
-                    <td className="px-4 py-1 font-sans font-semibold text-[14.5px]">{transaction.time}</td>
-                    <td className="px-4 py-1 font-sans font-semibold text-[14.5px] flex items-center">
-                      <span className={`py-1 px-3 rounded-full text-xs font-semibold text-${transaction.categoryColor}`}>
+                    <td className="px-6 text-nowrap py-4">{day}</td>
+                    <td className="px-6 text-nowrap py-4">{date}</td>
+                    <td className="px-6 text-nowrap py-4">
+                      {transaction.time}
+                    </td>
+                    <td className="px-6 text-nowrap py-4">
+                      <span
+                        className={`py-1 px-3 rounded-full text-xs font-semibold text-${transaction.categoryColor}`}
+                      >
                         {transaction.category}
                       </span>
                     </td>

@@ -1,7 +1,6 @@
 'use client'
 import React, { useState } from 'react';
-import { CrossIcon, CrosshairIcon, User2Icon, XIcon } from 'lucide-react';
-import { CloseButton } from '@headlessui/react';
+import { User2Icon, XIcon } from 'lucide-react';
 
 interface Contact {
   id: number;
