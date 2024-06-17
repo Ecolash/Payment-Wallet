@@ -5,7 +5,8 @@ import { MenuIcon } from "lucide-react";
 import { useState } from "react";
 import NavLink from "./ui/NavLink";
 
-export function Header({ session: { user } = { user: null } }) {
+export function Header({ session }: { session: any }) {
+  const { user } = session || { user: null };
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleMenuOpen = () => {

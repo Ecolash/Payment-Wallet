@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 
-export function CTA({ session: { user } = { user: null } }) {
+export function CTA({ session }: { session: any }) {
+  const { user } = session || { user: null };
   return (
     <div className="mb-12 px-2 md:px-6 mx-auto mt-16 max-w-7xl">
       <div className="mb-32">
