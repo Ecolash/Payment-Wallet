@@ -1,6 +1,8 @@
 import prisma from "@repo/db/client"
 import Credentials from "next-auth/providers/credentials"
 import bcrypt from "bcrypt"
+import GoogleProvider from "next-auth/providers/google";
+import { PrismaClient } from "@prisma/client";
 
 export const authOptions ={
     providers:[
@@ -53,13 +55,38 @@ export const authOptions ={
                 }
                 return null;
             },
-        })
+        }),
+        GoogleProvider({
+            clientId: process.env.GOOGLE_CLIENT_ID!,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+          }),
     ],
     secret: process.env.JWT_SECRET || "secret",
     callbacks: {
         async session({token,session}:any){
             session.user.id=token.sub;
             return session;
-        }
+        },
+        async signIn({ user, account }: { user: any, account: any }) {
+            if (account.provider === "google") {
+              const { name, email } = user;
+              try {
+                const userExists = await prisma.user.findUnique({ where: { email } });
+          
+                if (!userExists) {
+                  await prisma.user.create({
+                    data: {
+                      name,
+                      email,
+                    },
+                  });
+                }
+              } catch (error) {
+                console.log(error);
+              }
+            }
+          
+            return user;
+          },
     }
 }
