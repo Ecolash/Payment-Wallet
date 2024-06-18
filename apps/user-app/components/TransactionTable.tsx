@@ -28,7 +28,7 @@ const TransactionTable: React.FC<TransactionTableProps> = ({
   categories.unshift("All");
 
   return (
-    <div className="w-full bg-cardblack text-white py-2 rounded-xl mt-5 border-t-2 border-orange-500">
+    <div className="w-full bg-cardblack text-white py-2 rounded-xl mt-5 border-t-2 border-navred">
       <div className="w-full mx-auto">
         <div className="flex px-1 justify-between items-center mb-4">
           <h1 className="text-[20px] font-bold font-sans pl-2">

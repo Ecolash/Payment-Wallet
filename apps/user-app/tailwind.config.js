@@ -92,6 +92,7 @@ module.exports = {
         blacks : '#1e1e1c',
         subblack : '#212121',
         cardblack : '#2a2a2b',
+        dashblack : '#161614',
         navred :'#ff4545'
       },
       screens: {

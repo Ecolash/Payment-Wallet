@@ -161,18 +161,18 @@ const App: React.FC = () => {
   let greeting;
 
   if (currentHour < 12) {
-    greeting = "Good morning";
+    greeting = "Good Morning";
   } else if (currentHour < 18) {
-    greeting = "Good afternoon";
+    greeting = "Good Afternoon";
   } else {
-    greeting = "Good evening";
+    greeting = "Good Evening";
   }
 
-  const dynamicGreeting = `${greeting}, Fetch Name. 👋`;
+  const dynamicGreeting = `${greeting}, Fetch Name`;
 
   return (
     <>
-      <div className="bg-stone-900 overflow-hidden p-4 md:p-6 rounded-lg mb-8 relative">
+      <div className="bg-cardblack overflow-hidden p-4 md:p-6 rounded-lg mb-4 relative">
         <div className="hidden lg:block mr-16 -mt-4 top-0 right-0 absolute pointer-events-none">
           <svg
             className="hue-rotate-[120deg]"
@@ -243,7 +243,7 @@ const App: React.FC = () => {
           </svg>
         </div>
         <div className="relative">
-          <h1 className="text-white font-bold text-2xl md:text-3xl leading-snug mb-2">
+          <h1 className="text-white font-bold text-xl md:text-2xl leading-snug mb-2">
             {dynamicGreeting}
           </h1>
           <p className="text-slate-100">

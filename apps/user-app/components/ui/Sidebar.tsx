@@ -73,7 +73,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 z-50 w-full border-b bg-neutral-950 border-gray-900">
+      <nav className="fixed top-0 z-50 w-full border-b bg-dashblack border-gray-900">
         <div className="px-3 py-3 lg:px-5 lg:pl-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center justify-start rtl:justify-end">
@@ -167,7 +167,7 @@ const Sidebar = () => {
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="h-full overflow-hidden px-3 pb-4 pt-6 bg-neutral-950">
+        <div className="h-full overflow-hidden pl-4 pb-4 pt-6 bg-dashblack">
           <ul className="space-y-3 font-medium">
             {navlinks.map((link, index) => (
               <Link
@@ -175,8 +175,8 @@ const Sidebar = () => {
                 href={link.link}
                 className={
                   location === link.link
-                    ? "flex items-center p-2 bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br rounded-lg group text-white"
-                    : "flex items-center p-2  rounded-lg text-white hover:bg-gray-700 group"
+                    ? "flex items-center p-2 pl-4 bg-gradient-to-r from-navred to-red-500 hover:bg-gradient-to-br rounded-tl-2xl rounded-bl-2xl group text-white scale-105 font-bold"
+                    : "flex items-center p-2 pl-3 rounded-lg text-white hover:bg-gray-700 group"
                 }
               >
                 <link.icon />

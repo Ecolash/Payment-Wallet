@@ -22,7 +22,7 @@ const getInitials = (name: string) => {
 const P2PTransferTable: React.FC<P2PTransferTableProps> = ({ transfers }) => {
   return (
     <>
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg bg-cardblack text-white rounded-xl border-t-2 border-red-500">
+      <div className="relative overflow-x-auto shadow-md sm:rounded-lg bg-cardblack text-white rounded-xl border-t-2 border-navred">
         <div className="w-full mx-auto">
           <div className="overflow-x-scroll rounded-xl">
             <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -61,7 +61,7 @@ const P2PTransferTable: React.FC<P2PTransferTableProps> = ({ transfers }) => {
                         scope="row"
                         className="flex items-center px-6 py-4 whitespace-nowrap text-white"
                       >
-                        <div className="p-0.5 rounded-full bg-navred flex items-center justify-center mr-2">
+                        <div className="px-1.5 py-1 rounded-full bg-navred flex items-center justify-center mr-2">
                           <span className="text-white font-bold text-sm">
                             {initials}
                           </span>
